@@ -1,29 +1,35 @@
-
-//
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
-import ImageListItemBar from "@mui/material/ImageListItemBar";
-import ListSubheader from "@mui/material/ListSubheader";
-import IconButton from "@mui/material/IconButton";
+//Import Lib
+import Modal from "react-modal";
+import { useRouter } from "next/router";
 import InfoIcon from "@mui/icons-material/Info";
-
+import ImageList from "@mui/material/ImageList";
+import IconButton from "@mui/material/IconButton";
+import ImageListItem from "@mui/material/ImageListItem";
+import ListSubheader from "@mui/material/ListSubheader";
+import ImageListItemBar from "@mui/material/ImageListItemBar";
+//Components
+import Person from "./Person";
 //Style
 import styles from '../styles/List.module.css';
+import Link from "next/link";
 
+Modal.setAppElement("#__next");
 interface Props {
   data: [];
 }
 interface Info {
+  id:string;
   image: string;
   name: string;
   gender: string;
 }
 const List = ({ data }: Props) => {
+  const router = useRouter();
   return (
     <div className={styles.container}>
-      <ImageList sx={{ width: 'auto', height: 'auto' }} >
+      <ImageList sx={{ width: 'autonpm i react-modal', height: 'auto' }} >
         <ImageListItem key="Subheader" cols={2}>
-          <ListSubheader component="div">December</ListSubheader>
+          <h1><b>Personajes</b></h1>
         </ImageListItem>
         {data?.map((item: Info) => (
           <ImageListItem key={item.image}>
@@ -41,13 +47,24 @@ const List = ({ data }: Props) => {
                   sx={{ color: "rgba(255, 255, 255, 0.54)" }}
                   aria-label={`info about ${item.name}`}
                 >
+                   <Link
+              href={`/?id=${item.id}`}
+              as={`/Character/id=${item.id}`}
+            >
                   <InfoIcon />
+            </Link>
                 </IconButton>
               }
             />
           </ImageListItem>
         ))}
       </ImageList>
+      <Modal
+        isOpen={!!router.query.id}
+        onRequestClose={() => router.push("/")}
+      >
+        <Person id={router.query.id}/>
+      </Modal>
     </div>
   );
 };
