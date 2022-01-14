@@ -2,7 +2,9 @@
     width: 80%;
     margin:'auto';
     display: flex;
-    background-color: #0070f3;
     justify-content: center;
     
+}
+.image{
+    direction: rtl;
 }

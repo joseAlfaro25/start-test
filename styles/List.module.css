@@ -3,3 +3,7 @@
     margin:auto;
     display: flex
 }
+
+.info{
+    transition: ease-in .4s;
+}

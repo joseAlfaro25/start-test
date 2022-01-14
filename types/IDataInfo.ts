@@ -12,5 +12,6 @@ export interface Info {
     died: number;
     diedLocation: string;
     species: string;
+    skinColor: string;
     formerAffiliations: never[]
 }

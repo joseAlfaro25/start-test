@@ -1,11 +1,12 @@
 import React from 'react'
 import { useRouter } from 'next/router';
 
-import Person from '../Person';
+import Person from '../../components/Person';
 
 const Details = () => {
     const router = useRouter();
-    const  id  = router.query.id;
+    const  {id}  = router.query;
+
 
     return (
         <div>

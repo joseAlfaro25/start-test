@@ -12,6 +12,18 @@ import { Info } from "../types/IDataInfo";
 //Style
 import styles from "../styles/List.module.css";
 import Link from "next/link";
+import { Tooltip } from "@mui/material";
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
 
 Modal.setAppElement("#__next");
 interface Props {
@@ -44,8 +56,13 @@ const List = ({ data }: Props) => {
                   sx={{ color: "rgba(255, 255, 255, 0.54)" }}
                   aria-label={`info about ${item.name}`}
                 >
-                  <Link href={`/?id=${item.id}`} as={`/Character/${item.id}`}>
+                  <Link href={`/?id=${item.id}`} as={`/details/${item.id}`}>
+                  <Tooltip title="Detalles">
+                    <div>
                     <InfoIcon />
+                    </div>
+                  </Tooltip>
+                    
                   </Link>
                 </IconButton>
               }
@@ -53,7 +70,7 @@ const List = ({ data }: Props) => {
           </ImageListItem>
         ))}
       </ImageList>
-      <Modal isOpen={!!router.query.id} onRequestClose={() => router.push("/")}>
+      <Modal isOpen={!!router.query.id} onRequestClose={() => router.push("/")} style={customStyles} >
         <Person id={router.query.id} />
       </Modal>
     </div>
