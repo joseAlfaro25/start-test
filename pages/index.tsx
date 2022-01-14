@@ -2,10 +2,9 @@
 import axios from 'axios'
 import type { NextPage } from 'next'
 //Components
-
+import List from '../components/List';
 //Style
 import styles from '../styles/Home.module.css'
-import List from '../components/List';
 interface Props{
   data:[]
 }

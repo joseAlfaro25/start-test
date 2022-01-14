@@ -1,0 +1,12 @@
+.th{
+    text-align: left;
+}
+.title{
+    justify-content: center;
+    display: flex;
+}
+.container_internal{
+    margin: auto;
+    width: 80%;
+    display: flex;
+}
