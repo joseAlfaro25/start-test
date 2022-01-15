@@ -1,5 +1,5 @@
 import useSWR from "swr"
-import styles from "../styles/person.module.css";
+
 import Card from "../components/common/Card";
 import { Grid } from "@mui/material";
 import { useRouter } from "next/router";
@@ -15,10 +15,8 @@ interface Props {
 const Person = ({id}:Props) => {
     const router = useRouter();
     const { data, error } = useSWR(id, fetchC);
-    console.log('Ejecucion', router)
     if (error) return <div>Error Consulte con soporte</div>;
     if (!data) return <div>Loading...</div>;
-    console.log('Testing', data);
     return (
       <div>
       <Grid>

@@ -1,20 +1,25 @@
 //Import Lib
 import axios from 'axios'
 import type { NextPage } from 'next'
+import { useRouter } from 'next/router';
 //Components
 import List from '../components/List';
+import Layout from '../components/common/Layout';
 //Style
 import styles from '../styles/Home.module.css'
+
 interface Props{
   data:[]
 }
 
 const Home: NextPage<Props> = ({data}:Props) => {
-  console.log(data)
+  
   return (
+  <Layout>
     <div className={styles.container}>
       <List data={data}/>
     </div>
+  </Layout>
   )
 }
 Home.getInitialProps = async () => {
