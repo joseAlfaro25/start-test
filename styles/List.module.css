@@ -25,9 +25,16 @@
     
   }
   @media (min-width: 300px) and (max-width: 1000px)
-  {  
-  .img{
-    width: 100%;
+  {
+    .css-rhsghg {
+      display: block;
+      -webkit-background-size: cover;
+      background-size: cover;
+      background-repeat: no-repeat;
+      -webkit-background-position: center;
+      background-position: center;
+      width: 100%;
+      object-fit: cover;
     }
   }
   .img img{
