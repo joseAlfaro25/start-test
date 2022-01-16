@@ -85,6 +85,9 @@ export default function TableDetails({ data }: Props) {
           </div>
         </Table>
       </TableContainer>
+      <div>
+        
+      </div>
     </div>
   );
 }

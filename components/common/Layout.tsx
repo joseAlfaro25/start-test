@@ -1,5 +1,5 @@
 //Import Lib
-import Link from "next/link";
+import Image from "next/image";
 import Modal from "react-modal";
 import { useRouter } from "next/router";
 //Components
@@ -30,9 +30,7 @@ export default function Layout({ children }: Props) {
     <div>
       <div className={styles.nav}>
         <nav>
-          <Link href="/">
-            <a>Home</a>
-          </Link>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Star_Wars_Logo.svg" height="50" width="100"/>
         </nav>
       </div>
       <div className={styles.main}>

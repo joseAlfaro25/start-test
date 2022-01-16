@@ -1,9 +1,46 @@
 .container{
-    width:80%;
+    width:93%;
     margin:auto;
     display: flex
 }
 
 .info{
-    transition: ease-in .4s;
+   color:#ffff00
+}
+.item{
+    width:100%;
+    margin: auto;
+}
+.img{
+    margin:10px auto;
+    padding:13px;
+    width:auto;
+    height:550px;
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+    background-size: cover;
+    }
+  .img img{
+    width: 100%;
+    
+  }
+  @media (min-width: 300px) and (max-width: 1000px)
+  {  
+  .img{
+    width: 100%;
+    }
+  }
+  .img img{
+     width:100%;
+  }
+  .img_list{
+    background-color: black;
+}
+
+.img_container{
+    overflow-x: hidden;
+}
+
+.fiel{
+    width: 100%;
 }

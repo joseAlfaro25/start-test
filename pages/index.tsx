@@ -1,7 +1,6 @@
 //Import Lib
 import axios from 'axios'
 import type { NextPage } from 'next'
-import { useRouter } from 'next/router';
 //Components
 import List from '../components/List';
 import Layout from '../components/common/Layout';

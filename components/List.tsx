@@ -8,15 +8,12 @@ import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
 
 //Components
-import Person from "./Person";
 import { Info } from "../types/IDataInfo";
 //Style
 import styles from "../styles/List.module.css";
 import Link from "next/link";
-import { TextField, Tooltip } from "@mui/material";
+import { CardMedia, Grid, TextField, Tooltip } from "@mui/material";
 import React, { useState } from "react";
-
-
 
 Modal.setAppElement("#__next");
 interface Props {
@@ -39,45 +36,64 @@ const List = ({ data }: Props) => {
     setRows(filteredRows);
   };
   return (
-    <div className={styles.container}>
-      <ImageList sx={{ width: "autonpm i react-modal", height: "auto" }}>
-        <ImageListItem key="Subheader" cols={2}>
-          <h1>
-            <b>Personajes</b>
-          </h1>
-          <TextField value={searchedAchar} onChange={requestSearch} />
-        </ImageListItem>
-        {rows?.map((item: Info) => (
-          <ImageListItem key={item.image}>
-            <img
-              src={`${item.image}?w=248&fit=crop&auto=format`}
-              srcSet={`${item.image}?w=248&fit=crop&auto=format&dpr=2 2x`}
-              alt={item.name}
-              loading="lazy"
-            />
-            <ImageListItemBar
-              title={item.name}
-              subtitle={item.gender}
-              actionIcon={
-                <IconButton
-                  sx={{ color: "rgba(255, 255, 255, 0.54)" }}
-                  aria-label={`info about ${item.name}`}
-                >
-                  <Link href={`/?id=${item.id}`} as={`/details/${item.id}`}>
-                    <Tooltip title="Detalles">
-                      <div>
-                        <InfoIcon />
-                      </div>
-                    </Tooltip>
-                  </Link>
-                </IconButton>
-              }
-            />
-          </ImageListItem>
-        ))}
-      </ImageList>
-     
-    </div>
+    <>
+    <Grid container spacing={2}>
+    <Grid item xs={6}>
+        <h1>
+          <b>Personajes</b>
+        </h1>
+      </Grid>
+      <Grid item xs={6} className={styles.item}>
+        <TextField
+          value={searchedAchar}
+          onChange={requestSearch}
+          placeholder="Buscar"
+          className={styles.fiel}
+        />
+      </Grid>
+    </Grid>
+      <div className={styles.container}>
+        <ImageList cols={1} className={styles.img_container}>
+          <Grid container spacing={2}>
+            {rows?.map((item: Info) => (
+              <Grid item xs={12} md={6} key={item.image}>
+                <ImageListItem>
+                  <CardMedia
+                    component="img"
+                    height="550"
+                    image={item.image}
+                    alt="Paella dish"
+                    className={styles.img}
+                  />
+                  <ImageListItemBar
+                    title={item.name}
+                    subtitle={item.gender}
+                    className={styles.img_list}
+                    actionIcon={
+                      <IconButton
+                        sx={{ color: "rgba(255, 255, 255, 0.54)" }}
+                        aria-label={`info about ${item.name}`}
+                      >
+                        <Link
+                          href={`/?id=${item.id}`}
+                          as={`/details/${item.id}`}
+                        >
+                          <Tooltip title="Detalles">
+                            <div>
+                              <InfoIcon className={styles.info}/>
+                            </div>
+                          </Tooltip>
+                        </Link>
+                      </IconButton>
+                    }
+                  />
+                </ImageListItem>
+              </Grid>
+            ))}
+          </Grid>
+        </ImageList>
+      </div>
+    </>
   );
 };
 

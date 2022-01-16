@@ -1,13 +1,10 @@
 .main {
   overflow: auto;
-  height: 100%;
-  margin: 0em;
-  position: sticky;
+  height: 96%;
+  position: fixed;
+  width: 100%;
 }
 .nav {
   background-color: black;
-  height: 100%;
-  margin: 0em;
-
   position: static;
 }
