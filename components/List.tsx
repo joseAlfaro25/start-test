@@ -21,37 +21,44 @@ interface Props {
 }
 
 const List = ({ data }: Props) => {
-  const router = useRouter();
-  const [searched, setSearched] = useState<string>("");
   const [searchedAchar, setSearcheAchar] = useState<string>("");
-  const [rows, setRows] = useState<Info[]>(data);
+  const orderData = data.sort((a: Info, b: Info) => {
+    if (a.name > b.name) {
+      return 1;
+    }
+    if (a.name < b.name) {
+      return -1;
+    }
+    return 0;
+  });
+  const [rows, setRows] = useState<Info[]>(orderData);
   const requestSearch = (
     searchedVal: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { value } = searchedVal.target;
     setSearcheAchar(value);
-    const filteredRows = data.filter((row: Info) => {
+    const filteredRows = orderData.filter((row: Info) => {
       return row.name.toLowerCase().includes(value.toLowerCase());
     });
     setRows(filteredRows);
   };
   return (
     <>
-    <Grid container spacing={2}>
-    <Grid item xs={6}>
-        <h1>
-          <b>Personajes</b>
-        </h1>
+      <Grid container spacing={2}>
+        <Grid item xs={6}>
+          <h1>
+            <b>Personajes</b>
+          </h1>
+        </Grid>
+        <Grid item xs={6} className={styles.item}>
+          <TextField
+            value={searchedAchar}
+            onChange={requestSearch}
+            placeholder="Buscar"
+            className={styles.fiel}
+          />
+        </Grid>
       </Grid>
-      <Grid item xs={6} className={styles.item}>
-        <TextField
-          value={searchedAchar}
-          onChange={requestSearch}
-          placeholder="Buscar"
-          className={styles.fiel}
-        />
-      </Grid>
-    </Grid>
       <div className={styles.container}>
         <ImageList cols={1} className={styles.img_container}>
           <Grid container spacing={2}>
@@ -62,7 +69,7 @@ const List = ({ data }: Props) => {
                     component="img"
                     height="550"
                     image={item.image}
-                    alt="Paella dish"
+                    alt={item.image}
                     className={styles.img}
                   />
                   <ImageListItemBar
@@ -80,7 +87,7 @@ const List = ({ data }: Props) => {
                         >
                           <Tooltip title="Detalles">
                             <div>
-                              <InfoIcon className={styles.info}/>
+                              <InfoIcon className={styles.info} />
                             </div>
                           </Tooltip>
                         </Link>

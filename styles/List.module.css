@@ -14,7 +14,7 @@
 .img{
     margin:10px auto;
     padding:13px;
-    width:auto;
+    width:auto !important;
     height:550px;
     background-size: 100% 100%;
     background-repeat:no-repeat;
@@ -34,7 +34,7 @@
      width:100%;
   }
   .img_list{
-    background-color: black;
+    background-color: #000000 !important;
 }
 
 .img_container{
