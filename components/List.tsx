@@ -24,7 +24,7 @@ const List = ({ data }: Props) => {
   const [searchedAchar, setSearcheAchar] = useState<string>("");
   const orderData = data.sort((a: Info, b: Info) => {
     if (a.name > b.name) {
-      return 1;
+      return 1
     }
     if (a.name < b.name) {
       return -1;
@@ -51,12 +51,14 @@ const List = ({ data }: Props) => {
           </h1>
         </Grid>
         <Grid item xs={6} className={styles.item}>
+          <div className={styles.sub_item}>
           <TextField
             value={searchedAchar}
             onChange={requestSearch}
             placeholder="Buscar"
             className={styles.fiel}
           />
+          </div>
         </Grid>
       </Grid>
       <div className={styles.container}>
@@ -84,6 +86,7 @@ const List = ({ data }: Props) => {
                         <Link
                           href={`/?id=${item.id}`}
                           as={`/details/${item.id}`}
+                          passHref={true}
                         >
                           <Tooltip title="Detalles">
                             <div>

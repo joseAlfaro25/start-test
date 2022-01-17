@@ -7,18 +7,21 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Avatar, Button, Tooltip } from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
-import { red } from "@mui/material/colors";
+import { yellow } from "@mui/material/colors";
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 //components
 import { Info } from "../../types/IDataInfo";
 //styles
 import styles from "../../styles/card.module.css";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 interface Props {
   data: Info;
 }
 
 export default function TableDetails({ data }: Props) {
+  const router = useRouter()
   function createData(name: string, item: any) {
     return { name, item };
   }
@@ -30,9 +33,17 @@ export default function TableDetails({ data }: Props) {
     createData("Estatura", `${data.height}`),
     createData("Color de piel", `${data.skinColor}`),
   ];
-
   return (
     <div className={styles.container}>
+      <Button onClick={() => router.push("/")}><div>
+        <KeyboardBackspaceIcon className={styles.go_back}/>
+        <img
+        src={data.image}
+        alt="Picture of the author"
+        width={160}
+        height={200}
+        />
+          </div></Button>
       <TableContainer
         sx={{ boxShadow: "none", maxWidth: 350 }}
         component={Paper}
@@ -40,7 +51,7 @@ export default function TableDetails({ data }: Props) {
         <div className={styles.title}>
           <div className={styles.name}>
             <Avatar
-              sx={{ bgcolor: red[500] }}
+              sx={{ bgcolor: yellow[500] }}
               aria-label="recipe"
               className={styles.title}
             >
@@ -78,7 +89,7 @@ export default function TableDetails({ data }: Props) {
             <Link href={data.wiki}>
               <a target="_blank">
                 <Tooltip title="Encontraras todos los detalles referentes al personaje como película, director.etc.">
-                  <InfoIcon />
+                  <InfoIcon/>
                 </Tooltip>
               </a>
             </Link>

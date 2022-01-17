@@ -10,6 +10,12 @@
 .item{
     width:100%;
     margin: auto;
+    display: flex
+}
+.sub_item{
+  width: 66%;
+  margin-left: auto;
+  display: flex
 }
 .img{
     margin:10px auto;
@@ -25,16 +31,9 @@
     
   }
   @media (min-width: 300px) and (max-width: 1000px)
-  {
-    .css-rhsghg {
-      display: block;
-      -webkit-background-size: cover;
-      background-size: cover;
-      background-repeat: no-repeat;
-      -webkit-background-position: center;
-      background-position: center;
-      width: 100%;
-      object-fit: cover;
+  {  
+  .img{
+    width: 100% !important;
     }
   }
   .img img{
