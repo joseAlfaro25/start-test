@@ -1,6 +1,5 @@
 //Import Lib
 import Modal from "react-modal";
-import { useRouter } from "next/router";
 import InfoIcon from "@mui/icons-material/Info";
 import ImageList from "@mui/material/ImageList";
 import IconButton from "@mui/material/IconButton";

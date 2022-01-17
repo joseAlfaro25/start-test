@@ -1,20 +1,20 @@
 //import Lib
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableRow from "@mui/material/TableRow";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import Paper from "@mui/material/Paper";
-import { Avatar, Button, Tooltip } from "@mui/material";
-import InfoIcon from "@mui/icons-material/Info";
+import Table from "@mui/material/Table";
 import { yellow } from "@mui/material/colors";
+import TableRow from "@mui/material/TableRow";
+import TableBody from "@mui/material/TableBody";
+import InfoIcon from "@mui/icons-material/Info";
+import TableCell from "@mui/material/TableCell";
+import { Avatar, Button, Tooltip } from "@mui/material";
+import TableContainer from "@mui/material/TableContainer";
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 //components
 import { Info } from "../../types/IDataInfo";
 //styles
 import styles from "../../styles/card.module.css";
-import Link from "next/link";
-import { useRouter } from "next/router";
 
 interface Props {
   data: Info;
@@ -42,6 +42,7 @@ export default function TableDetails({ data }: Props) {
         alt="Picture of the author"
         width={160}
         height={200}
+        className={styles.img_p}
         />
           </div></Button>
       <TableContainer

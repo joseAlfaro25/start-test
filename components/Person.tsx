@@ -1,8 +1,9 @@
+//Import Lib
 import useSWR from "swr"
-
-import Card from "../components/common/Card";
 import { Grid } from "@mui/material";
 import { useRouter } from "next/router";
+//Components
+import Card from "../components/common/Card";
 
 const fetchC = (id:string) =>
   fetch(

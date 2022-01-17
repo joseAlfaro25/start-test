@@ -1,6 +1,7 @@
+//Import Lib
 import React from 'react'
 import { useRouter } from 'next/router';
-
+//Components
 import Person from '../../components/Person';
 import Layout from '../../components/common/Layout';
 
